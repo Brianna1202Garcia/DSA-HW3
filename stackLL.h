@@ -98,7 +98,34 @@ public:
 	//(and before the i+1 item).
 	//Run-Time:
 	void insertAt(int x, int i) {
-		
+		//when the stack is empty
+		if(top == 0) {
+			node;
+			return;
+		}
+
+		//start at the top
+		node* current = top;
+		//keep track
+		int count = 0;
+
+		//traverse to that node
+		while(current != nullptr && count < i ) {
+			current = current->next;
+			count++;
+		}
+
+		//when current is null, its out of bounds
+		if (current == nullptr) {
+			return;
+		}
+		//create a newnode and then link it to the list
+		node* newNode = new node(x);
+		newNode->next = current->next;
+		current->next = newNode;
+
+
+
 	}
 
 };
